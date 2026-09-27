@@ -1,62 +1,81 @@
+import heroImg from '../assets/hero.png'
+
 const Hero = () => {
   return (
-    <section className="bg-gray-50">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2">
+    <section className="bg-light-blue-50">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 md:grid-cols-2 lg:py-20">
 
-        <div>
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-600">
+        {/* Left Side */}
+        <div className="max-w-xl">
+
+          <p className="mb-4 text-sm font-bold uppercase tracking-widest text-blue-600">
             Melsoft Academy
           </p>
 
-          <h1 className="text-4xl font-bold leading-tight text-gray-900 md:text-6xl">
-            Book a one-on-one session with a mentor.
+          <h1 className="text-4xl font-bold leading-tight tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+            Book a one-on-one
+            <br />
+            session with a mentor.
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg leading-8 text-gray-600">
+          <p className="mt-6 max-w-lg text-base leading-7 text-slate-600 md:text-lg">
             Need help with a project, coding problem or something you're
             struggling with? Choose a mentor and reserve a session that works
             for you.
           </p>
 
-          <div className="mt-8 flex gap-4">
-            <button className="rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
+          {/* Buttons */}
+          <div className="mt-8 flex flex-wrap gap-4">
+
+            <button className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700">
               Find a Mentor
             </button>
 
-            <button className="rounded-lg border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-700 hover:bg-gray-100">
+            <button className="rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
               How It Works
             </button>
+
           </div>
+
         </div>
 
-        <div className="rounded-2xl bg-blue-600 p-8 text-white">
-          <h2 className="text-2xl font-bold">
-            Get help when you need it.
-          </h2>
+        {/* Right Side - Hero Image */}
+        <div className="relative flex items-center justify-center">
 
-          <p className="mt-4 text-blue-100">
-            Select a mentor, choose an available time and reserve your
-            one-on-one session.
-          </p>
+          {/* Soft background shape */}
+          <div className="absolute h-72 w-72 rounded-full bg-blue-50 md:h-96 md:w-96"></div>
 
-          <div className="mt-8 space-y-4">
-            <div className="rounded-xl bg-white/10 p-4">
-              <p className="font-semibold">01 — Choose a mentor</p>
-            </div>
+          {/* Hero Image */}
+          <img
+            src={heroImg}
+            alt="Student working on a laptop"
+            className="relative z-10 w-full max-w-lg rounded-3xl object-cover shadow-sm"
+          />
 
-            <div className="rounded-xl bg-white/10 p-4">
-              <p className="font-semibold">02 — Pick a time</p>
-            </div>
+          {/* Small floating text */}
+          <div className="absolute right-0 top-8 z-20 hidden rotate-[-8deg] md:block">
 
-            <div className="rounded-xl bg-white/10 p-4">
-              <p className="font-semibold">03 — Confirm booking</p>
-            </div>
+            <p className="font-semibold leading-tight text-slate-700">
+              Better
+              <br />
+              Support.
+              <br />
+              Bigger
+              <br />
+              Goals.
+            </p>
+
+            <span className="text-2xl text-slate-700">
+              ↙
+            </span>
+
           </div>
+
         </div>
 
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

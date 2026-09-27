@@ -1,5 +1,5 @@
 import MentorCard from "./MentorCard";
-import { mentors } from "../data/mentors";
+import { mentors } from "../data/mentor";
 
 const MentorList = ({ onBook }) => {
   return (

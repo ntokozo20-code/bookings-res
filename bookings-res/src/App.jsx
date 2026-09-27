@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import Hero from './components/hero'
 import MentorList from './components/MentorList'
 import BookingForm from './components/BookingForm'
 import BookingSummary from './components/BookingSummary'
