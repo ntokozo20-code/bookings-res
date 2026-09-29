@@ -1,26 +1,90 @@
-import MentorCard from "./MentorCard";
-import { mentors } from "../data/mentor";
+import MentorCard from './MentorCard'
 
 const MentorList = ({ onBook }) => {
+
+  const mentors = [
+    {
+      id: 1,
+      name: 'Mnelisi',
+      role: 'Software Development Mentor',
+      speciality: 'React & JavaScript',
+      image: 'https://i.pravatar.cc/150?img=12',
+      available: true
+    },
+    {
+      id: 2,
+      name: 'Zinhle',
+      role: 'Software Development Mentor',
+      speciality: 'Web Development',
+      image: 'https://i.pravatar.cc/150?img=47',
+      available: true
+    },
+    {
+      id: 3,
+      name: 'Caleb',
+      role: 'Development Mentor',
+      speciality: 'Frontend Development',
+      image: 'https://i.pravatar.cc/150?img=33',
+      available: true
+    },
+    {
+      id: 4,
+      name: 'Thando',
+      role: 'UI/UX Mentor',
+      speciality: 'Design Systems',
+      image: 'https://i.pravatar.cc/150?img=44',
+      available: true
+    },
+    {
+      id: 5,
+      name: 'Lerato',
+      role: 'Backend Mentor',
+      speciality: 'Node.js & Express',
+      image: 'https://i.pravatar.cc/150?img=32',
+      available: true
+    },
+    {
+      id: 6,
+      name: 'Sipho',
+      role: 'Full Stack Mentor',
+      speciality: 'React & Node.js',
+      image: 'https://i.pravatar.cc/150?img=11',
+      available: true
+    }
+  ]
+
   return (
-    <section className="bg-white py-20">
+    <section className="bg-slate-50 py-16">
+
       <div className="mx-auto max-w-7xl px-6">
 
-        <div className="mb-10">
-          <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
-            Our Mentors
-          </p>
+        {/* Heading */}
+        <div className="mb-8 flex items-end justify-between">
 
-          <h2 className="mt-2 text-3xl font-bold text-gray-900">
-            Find the right mentor
-          </h2>
+          <div>
+            <p className="text-sm font-bold uppercase tracking-widest text-blue-600">
+              Our Mentors
+            </p>
 
-          <p className="mt-3 max-w-2xl text-gray-600">
-            Choose a mentor based on the type of help you need.
-          </p>
+            <h2 className="mt-2 text-3xl font-bold text-slate-900">
+              Meet our mentors
+            </h2>
+
+            <p className="mt-3 text-slate-600">
+              Choose a mentor and book a one-on-one session.
+            </p>
+          </div>
+
+          {/* View All */}
+          <button className="hidden text-sm font-semibold text-blue-600 hover:text-blue-700 md:block">
+            View All →
+          </button>
+
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Mentor Grid */}
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+
           {mentors.map((mentor) => (
             <MentorCard
               key={mentor.id}
@@ -28,11 +92,13 @@ const MentorList = ({ onBook }) => {
               onBook={onBook}
             />
           ))}
+
         </div>
 
       </div>
-    </section>
-  );
-};
 
-export default MentorList;
+    </section>
+  )
+}
+
+export default MentorList
