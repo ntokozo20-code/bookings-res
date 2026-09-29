@@ -12,14 +12,23 @@ function App() {
 
   const [selectedMentor, setSelectedMentor] = useState(null)
   const [bookingConfirmed, setBookingConfirmed] = useState(false)
+  const [booking, setBooking] = useState(null)
 
   const handleBooking = (mentor) => {
     setSelectedMentor(mentor)
+    setBooking(null)
     setBookingConfirmed(false)
   }
 
-  const handleConfirmBooking = () => {
+  const handleConfirmBooking = (newBooking) => {
+    setBooking(newBooking)
     setBookingConfirmed(true)
+  }
+
+  const handleViewBookings = () => {
+    setBooking(null)
+    setSelectedMentor(null)
+    setBookingConfirmed(false)
   }
 
   return (
@@ -46,9 +55,10 @@ function App() {
           />
         )}
 
-        {bookingConfirmed && (
+        {bookingConfirmed && booking && (
           <BookingSummary
-            mentor={selectedMentor}
+            booking={booking}
+            onViewBookings={handleViewBookings}
           />
         )}
 
