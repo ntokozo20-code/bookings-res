@@ -11,64 +11,60 @@ import Footer from './components/footer'
 
 function App() {
 
+  const [page, setPage] = useState('home')
   const [selectedMentor, setSelectedMentor] = useState(null)
   const [booking, setBooking] = useState(null)
   const [bookings, setBookings] = useState([])
-  const [page, setPage] = useState('home')
 
-  const handleBook = (mentor) => {
+  const bookMentor = (mentor) => {
     setSelectedMentor(mentor)
     setPage('booking')
   }
 
-  const handleConfirmBooking = (newBooking) => {
+  const confirmBooking = (newBooking) => {
     setBooking(newBooking)
-
     setBookings([...bookings, newBooking])
-
     setPage('confirmed')
-  }
-
-  const handleViewBookings = () => {
-    setPage('bookings')
-  }
-
-  const handleHome = () => {
-    setPage('home')
   }
 
   return (
     <>
-      <Navbar onMyBookings={handleViewBookings} />
+      <Navbar
+        onHome={() => setPage('home')}
+        onMentors={() => setPage('home')}
+        onBookMentor={() => setPage('home')}
+        onMyBookings={() => setPage('bookings')}
+      />
 
-      <main>
+      {page === 'home' && (
+        <>
+          <Hero />
 
-        {page === 'home' && (
-          <>
-            <Hero />
-            <MentorList onBook={handleBook} />
-          </>
-        )}
-
-        {page === 'booking' && (
-          <BookingForm
-            mentor={selectedMentor}
-            onConfirm={handleConfirmBooking}
+          <MentorList
+            onBook={bookMentor}
           />
-        )}
+        </>
+      )}
 
-        {page === 'confirmed' && (
-          <BookingSummary
-            booking={booking}
-            onViewBookings={handleViewBookings}
-          />
-        )}
+      {page === 'booking' && (
+        <BookingForm
+          mentor={selectedMentor}
+          onConfirm={confirmBooking}
+        />
+      )}
 
-        {page === 'bookings' && (
-          <MyBookings bookings={bookings} />
-        )}
+      {page === 'confirmed' && (
+        <BookingSummary
+          booking={booking}
+          onViewBookings={() => setPage('bookings')}
+        />
+      )}
 
-      </main>
+      {page === 'bookings' && (
+        <MyBookings
+          bookings={bookings}
+        />
+      )}
 
       <Footer />
     </>

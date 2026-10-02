@@ -1,6 +1,6 @@
 import MentorCard from './MentorCard'
 
-const MentorList = ({ onBook }) => {
+const MentorList = ({ onBook, sectionRef }) => {
 
   const mentors = [
     {
@@ -54,7 +54,7 @@ const MentorList = ({ onBook }) => {
   ]
 
   return (
-    <section className="bg-slate-50 py-16">
+    <section ref={sectionRef} className="bg-slate-50 py-16">
 
       <div className="mx-auto max-w-7xl px-6">
 

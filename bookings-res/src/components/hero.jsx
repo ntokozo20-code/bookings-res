@@ -19,23 +19,10 @@ const Hero = () => {
           </h1>
 
           <p className="mt-6 max-w-lg text-base leading-7 text-slate-600 md:text-lg">
-            Need help with a project, coding problem or something you're
-            struggling with? Choose a mentor and reserve a session that works
-            for you.
+            Need help with a project, coding problem, or something you're struggling with? 
+            Choose a mentor who can guide you, answer your questions, and help you work through challenges. 
+            Reserve a one-on-one session at a time that works for you and get the support you need to improve your skills and complete your work with confidence.
           </p>
-
-          {/* Buttons */}
-          <div className="mt-8 flex flex-wrap gap-4">
-
-            <button className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700">
-              Find a Mentor
-            </button>
-
-            <button className="rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
-              How It Works
-            </button>
-
-          </div>
 
         </div>
 
