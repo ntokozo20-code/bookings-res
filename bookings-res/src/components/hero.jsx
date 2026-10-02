@@ -1,4 +1,4 @@
-import heroImg from '../assets/hero.png'
+import melsoftLogo from '../assets/melsoft logo.png'
 
 const Hero = () => {
   return (
@@ -47,29 +47,10 @@ const Hero = () => {
 
           {/* Hero Image */}
           <img
-            src={heroImg}
-            alt="Student working on a laptop"
+            src={melsoftLogo}
+            alt="Melsoft logo"
             className="relative z-10 w-full max-w-lg rounded-3xl object-cover shadow-sm"
           />
-
-          {/* Small floating text */}
-          <div className="absolute right-0 top-8 z-20 hidden rotate-[-8deg] md:block">
-
-            <p className="font-semibold leading-tight text-slate-700">
-              Better
-              <br />
-              Support.
-              <br />
-              Bigger
-              <br />
-              Goals.
-            </p>
-
-            <span className="text-2xl text-slate-700">
-              ↙
-            </span>
-
-          </div>
 
         </div>
 

@@ -1,71 +1,76 @@
 import { useState } from 'react'
 import './App.css'
 
-import Navbar from './components/Navbar'
+import Navbar from './components/navbar'
 import Hero from './components/hero'
 import MentorList from './components/MentorList'
 import BookingForm from './components/BookingForm'
 import BookingSummary from './components/BookingSummary'
-import Footer from './components/Footer'
+import MyBookings from './components/MyBookings'
+import Footer from './components/footer'
 
 function App() {
 
   const [selectedMentor, setSelectedMentor] = useState(null)
-  const [bookingConfirmed, setBookingConfirmed] = useState(false)
   const [booking, setBooking] = useState(null)
+  const [bookings, setBookings] = useState([])
+  const [page, setPage] = useState('home')
 
-  const handleBooking = (mentor) => {
+  const handleBook = (mentor) => {
     setSelectedMentor(mentor)
-    setBooking(null)
-    setBookingConfirmed(false)
+    setPage('booking')
   }
 
   const handleConfirmBooking = (newBooking) => {
     setBooking(newBooking)
-    setBookingConfirmed(true)
+
+    setBookings([...bookings, newBooking])
+
+    setPage('confirmed')
   }
 
   const handleViewBookings = () => {
-    setBooking(null)
-    setSelectedMentor(null)
-    setBookingConfirmed(false)
+    setPage('bookings')
+  }
+
+  const handleHome = () => {
+    setPage('home')
   }
 
   return (
     <>
-
-      <Navbar />
+      <Navbar onMyBookings={handleViewBookings} />
 
       <main>
 
-        {!selectedMentor && !bookingConfirmed && (
+        {page === 'home' && (
           <>
             <Hero />
-
-            <MentorList
-              onBook={handleBooking}
-            />
+            <MentorList onBook={handleBook} />
           </>
         )}
 
-        {selectedMentor && !bookingConfirmed && (
+        {page === 'booking' && (
           <BookingForm
             mentor={selectedMentor}
             onConfirm={handleConfirmBooking}
           />
         )}
 
-        {bookingConfirmed && booking && (
+        {page === 'confirmed' && (
           <BookingSummary
             booking={booking}
             onViewBookings={handleViewBookings}
           />
         )}
 
+        {page === 'bookings' && (
+          <MyBookings bookings={bookings} />
+        )}
+
       </main>
 
       <Footer />
-
     </>
   )
 }

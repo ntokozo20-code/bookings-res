@@ -74,12 +74,6 @@ const MentorList = ({ onBook }) => {
               Choose a mentor and book a one-on-one session.
             </p>
           </div>
-
-          {/* View All */}
-          <button className="hidden text-sm font-semibold text-blue-600 hover:text-blue-700 md:block">
-            View All →
-          </button>
-
         </div>
 
         {/* Mentor Grid */}
