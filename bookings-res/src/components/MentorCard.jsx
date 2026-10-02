@@ -55,13 +55,13 @@ const MentorCard = ({ mentor, onBook }) => {
       <button
         onClick={() => onBook(mentor)}
         disabled={!mentor.available}
-        className={`mt-5 w-full rounded-lg border px-4 py-2 text-sm font-semibold transition ${
+        className={`mt-5 w-full rounded-lg border px-4 py-2.5 text-sm font-semibold transition ${
           mentor.available
             ? 'border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'
             : 'cursor-not-allowed border-slate-200 text-slate-400'
         }`}
       >
-        book mentor
+        Book mentor
       </button>
 
     </div>

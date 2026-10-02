@@ -2,33 +2,37 @@ import { useState } from 'react'
 
 const BookingForm = ({ mentor, onConfirm }) => {
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [sessionType, setSessionType] = useState('Project Assistance')
-  const [date, setDate] = useState('')
-  const [time, setTime] = useState('09:00 - 09:30')
-  const [message, setMessage] = useState('')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    sessionType: 'Project Assistance',
+    date: '',
+    time: '09:00 - 09:30',
+    message: ''
+  })
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
     const booking = {
       mentor: mentor.name,
-      date: date,
-      time: time,
-      sessionType: sessionType,
-      name: name,
-      email: email,
-      message: message
+      ...formData
     }
 
     onConfirm(booking)
   }
 
   return (
-    <section className="min-h-screen bg-gray-50 py-16">
+    <section className="min-h-screen bg-gray-50 py-10 sm:py-16">
 
-      <div className="mx-auto max-w-3xl px-6">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6">
 
         <div className="mb-8">
 
@@ -36,11 +40,11 @@ const BookingForm = ({ mentor, onConfirm }) => {
             Reserve a Session
           </p>
 
-          <h1 className="mt-2 text-3xl font-bold text-gray-900">
+          <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl">
             Book with {mentor?.name}
           </h1>
 
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-sm text-gray-600 sm:text-base">
             Choose a date and time for your one-on-one mentorship session.
           </p>
 
@@ -48,7 +52,7 @@ const BookingForm = ({ mentor, onConfirm }) => {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
+          className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8"
         >
 
           {/* Student Name */}
@@ -60,9 +64,10 @@ const BookingForm = ({ mentor, onConfirm }) => {
 
             <input
               type="text"
+              name="name"
               placeholder="Enter your full name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={formData.name}
+              onChange={handleChange}
               required
               className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
             />
@@ -78,9 +83,10 @@ const BookingForm = ({ mentor, onConfirm }) => {
 
             <input
               type="email"
+              name="email"
               placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formData.email}
+              onChange={handleChange}
               required
               className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
             />
@@ -95,8 +101,9 @@ const BookingForm = ({ mentor, onConfirm }) => {
             </label>
 
             <select
-              value={sessionType}
-              onChange={(e) => setSessionType(e.target.value)}
+              name="sessionType"
+              value={formData.sessionType}
+              onChange={handleChange}
               className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
             >
               <option>Project Assistance</option>
@@ -116,8 +123,9 @@ const BookingForm = ({ mentor, onConfirm }) => {
 
             <input
               type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
               required
               className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
             />
@@ -132,8 +140,9 @@ const BookingForm = ({ mentor, onConfirm }) => {
             </label>
 
             <select
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
+              name="time"
+              value={formData.time}
+              onChange={handleChange}
               className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
             >
               <option>09:00 - 09:30</option>
@@ -154,10 +163,11 @@ const BookingForm = ({ mentor, onConfirm }) => {
             </label>
 
             <textarea
+              name="message"
               rows="4"
               placeholder="Briefly explain what you would like help with..."
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              value={formData.message}
+              onChange={handleChange}
               className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
             />
 

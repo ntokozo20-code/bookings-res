@@ -1,9 +1,9 @@
 const MyBookings = ({ bookings }) => {
 
   return (
-    <section className="min-h-screen bg-gray-50 py-16">
+    <section className="min-h-screen bg-gray-50 py-10 sm:py-16">
 
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
 
         {/* Heading */}
         <div className="mb-8">
@@ -12,11 +12,11 @@ const MyBookings = ({ bookings }) => {
             My Bookings
           </p>
 
-          <h1 className="mt-2 text-3xl font-bold text-gray-900">
+          <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl">
             Your Bookings
           </h1>
 
-          <p className="mt-2 text-gray-600">
+          <p className="mt-2 text-sm text-gray-600 sm:text-base">
             View and manage your upcoming mentorship sessions.
           </p>
 
@@ -68,7 +68,7 @@ const MyBookings = ({ bookings }) => {
                   </div>
 
                   {/* Status */}
-                  <div>
+                  <div className="self-start md:self-auto">
 
                     <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-600">
                       Upcoming

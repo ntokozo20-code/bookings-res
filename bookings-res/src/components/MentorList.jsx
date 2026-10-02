@@ -54,19 +54,19 @@ const MentorList = ({ onBook, sectionRef }) => {
   ]
 
   return (
-    <section ref={sectionRef} className="bg-slate-50 py-16">
+    <section ref={sectionRef} className="bg-slate-50 py-12 sm:py-16">
 
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* Heading */}
-        <div className="mb-8 flex items-end justify-between">
+        <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
 
           <div>
             <p className="text-sm font-bold uppercase tracking-widest text-blue-600">
               Our Mentors
             </p>
 
-            <h2 className="mt-2 text-3xl font-bold text-slate-900">
+            <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
               Meet our mentors
             </h2>
 
@@ -77,7 +77,7 @@ const MentorList = ({ onBook, sectionRef }) => {
         </div>
 
         {/* Mentor Grid */}
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
 
           {mentors.map((mentor) => (
             <MentorCard
