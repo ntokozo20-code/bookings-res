@@ -1,4 +1,10 @@
 import MentorCard from './MentorCard'
+import mnelisiMentor from '../assets/mnelisi mentor.jpg'
+import zinhleMentor from '../assets/zinhle mentor.jpg'
+import calebMentor from '../assets/caleb.jpg'
+import alainMentor from '../assets/alain.jpg'
+import thomasMentor from '../assets/thomas.jpg'
+import yamukelaMentor from '../assets/yamukela.jpg'
 
 const MentorList = ({ onBook, sectionRef }) => {
 
@@ -8,7 +14,7 @@ const MentorList = ({ onBook, sectionRef }) => {
       name: 'Mnelisi',
       role: 'Software Development Mentor',
       speciality: 'React & JavaScript',
-      image: 'https://i.pravatar.cc/150?img=12',
+      image: mnelisiMentor,
       available: true
     },
     {
@@ -16,7 +22,7 @@ const MentorList = ({ onBook, sectionRef }) => {
       name: 'Zinhle',
       role: 'Software Development Mentor',
       speciality: 'Web Development',
-      image: 'https://i.pravatar.cc/150?img=47',
+      image: zinhleMentor,
       available: true
     },
     {
@@ -24,31 +30,31 @@ const MentorList = ({ onBook, sectionRef }) => {
       name: 'Caleb',
       role: 'Development Mentor',
       speciality: 'Frontend Development',
-      image: 'https://i.pravatar.cc/150?img=33',
+      image: calebMentor,
       available: true
     },
     {
       id: 4,
-      name: 'Thando',
+      name: 'Alain',
       role: 'UI/UX Mentor',
       speciality: 'Design Systems',
-      image: 'https://i.pravatar.cc/150?img=44',
+      image: alainMentor,
       available: true
     },
     {
       id: 5,
-      name: 'Lerato',
+      name: 'Thomas',
       role: 'Backend Mentor',
       speciality: 'Node.js & Express',
-      image: 'https://i.pravatar.cc/150?img=32',
+      image: thomasMentor,
       available: true
     },
     {
       id: 6,
-      name: 'Sipho',
+      name: 'Yamukela',
       role: 'Full Stack Mentor',
       speciality: 'React & Node.js',
-      image: 'https://i.pravatar.cc/150?img=11',
+      image: yamukelaMentor,
       available: true
     }
   ]
